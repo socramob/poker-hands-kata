@@ -31,6 +31,24 @@ describe 'parse_poker_hands' do
 
 end
 
+class PokerCard; end
+
+describe PokerCard do
+  describe '##new' do
+
+  end
+
+  describe '#suit' do
+    it 'can be clubs'
+    it 'can be diamonds'
+    it 'can be hearts'
+    it 'can be spades'
+  end
+
+  describe '#value' do
+  end
+end
+
 describe 'Poker hands' do
   describe "Suggested test cases" do
     it "White wins with high card: Ace" do
