@@ -44,19 +44,19 @@ class PokerCard
       all_values.find { |value| value.instance_variable_get(:@symbol) == symbol}
     end
 
-    def initialize(symbol, order)
+    def initialize(symbol, order = symbol.to_i)
       @symbol, @order = symbol, order
       PokerCard::Value.all_values << self
     end
 
-    TWO   = new '2',  2
-    THREE = new '3',  3
-    FOUR  = new '4',  4
-    FIVE  = new '5',  5
-    SIX   = new '6',  6
-    SEVEN = new '7',  7
-    EIGHT = new '8',  8
-    NINE  = new '9',  9
+    TWO   = new '2'
+    THREE = new '3'
+    FOUR  = new '4'
+    FIVE  = new '5'
+    SIX   = new '6'
+    SEVEN = new '7'
+    EIGHT = new '8'
+    NINE  = new '9'
     TEN   = new 'T', 10
     JACK  = new 'J', 11
     QUEEN = new 'Q', 12
@@ -179,8 +179,12 @@ describe PokerCard do
 end
 
 describe 'poker card order' do
-  it "ace is more valuable then king" do
+  it "ace is more valuable than king" do
     PokerCard::VALUE_ACE.must_be :>, PokerCard::VALUE_KING
+  end
+
+  it "ten is more valuable than nine" do
+    PokerCard::VALUE_10.must_be :>, PokerCard::VALUE_9
   end
 end
 
