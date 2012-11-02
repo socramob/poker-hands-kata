@@ -100,6 +100,35 @@ describe PokerCard do
       two_of_clubs.value.must_equal PokerCard::VALUE_9
     end
 
+    it 'can be *ten*' do
+      ten_of_clubs = PokerCard.new 'TC'
+
+      ten_of_clubs.value.must_equal PokerCard::VALUE_10
+    end
+
+    it 'can be *jack*' do
+      jack_of_clubs = PokerCard.new 'JC'
+
+      jack_of_clubs.value.must_equal PokerCard::VALUE_JACK
+    end
+
+    it 'can be *queen*' do
+      queen_of_clubs = PokerCard.new 'QC'
+
+      queen_of_clubs.value.must_equal PokerCard::VALUE_QUEEN
+    end
+
+    it 'can be *king*' do
+      king_of_clubs = PokerCard.new 'KC'
+
+      king_of_clubs.value.must_equal PokerCard::VALUE_KING
+    end
+
+    it 'can be *ace*' do
+      ace_of_clubs = PokerCard.new 'AC'
+
+      ace_of_clubs.value.must_equal PokerCard::VALUE_ACE
+    end
   end
 end
 
