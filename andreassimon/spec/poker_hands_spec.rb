@@ -39,7 +39,12 @@ describe PokerCard do
   end
 
   describe '#suit' do
-    it 'can be clubs'
+    it 'can be clubs' do
+      two_of_clubs = PokerCard.new '2C'
+
+      two_of_clubs.suit.must_equal PokerCard::CLUBS
+    end
+
     it 'can be diamonds'
     it 'can be hearts'
     it 'can be spades'
