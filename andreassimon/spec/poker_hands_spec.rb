@@ -34,18 +34,37 @@ end
 class PokerCard
   class Value
     include Comparable
+    @@all_values = []
+
+    def self.all_values
+      @@all_values
+    end
+
+    def self.from_symbol(symbol)
+      all_values.find { |value| value.instance_variable_get(:@symbol) == symbol}
+    end
 
     def initialize(symbol, order)
       @symbol, @order = symbol, order
+      PokerCard::Value.all_values << self
     end
+
+    TWO   = new '2',  2
+    THREE = new '3',  3
+    FOUR  = new '4',  4
+    FIVE  = new '5',  5
+    SIX   = new '6',  6
+    SEVEN = new '7',  7
+    EIGHT = new '8',  8
+    NINE  = new '9',  9
+    TEN   = new 'T', 10
+    JACK  = new 'J', 11
+    QUEEN = new 'Q', 12
+    KING  = new 'K', 13
+    ACE   = new 'A', 14
 
     def to_s
       @symbol.to_s
-    end
-
-    def ==(other)
-      other.respond_to?(:to_s) &&
-        other.to_s == self.to_s
     end
 
     def <=>(other)
@@ -58,22 +77,23 @@ class PokerCard
   HEARTS = 'H'
   SPADES = 'S'
 
-  VALUE_2 = '2'
-  VALUE_3 = '3'
-  VALUE_4 = '4'
-  VALUE_5 = '5'
-  VALUE_6 = '6'
-  VALUE_7 = '7'
-  VALUE_8 = '8'
-  VALUE_9 = '9'
-  VALUE_10 = 'T'
-  VALUE_JACK  = 'J'
-  VALUE_QUEEN = 'Q'
-  VALUE_KING  = PokerCard::Value.new 'K', 13
-  VALUE_ACE   = PokerCard::Value.new 'A', 14
+  VALUE_2     = PokerCard::Value::TWO
+  VALUE_3     = PokerCard::Value::THREE
+  VALUE_4     = PokerCard::Value::FOUR
+  VALUE_5     = PokerCard::Value::FIVE
+  VALUE_6     = PokerCard::Value::SIX
+  VALUE_7     = PokerCard::Value::SEVEN
+  VALUE_8     = PokerCard::Value::EIGHT
+  VALUE_9     = PokerCard::Value::NINE
+  VALUE_10    = PokerCard::Value::TEN
+  VALUE_JACK  = PokerCard::Value::JACK
+  VALUE_QUEEN = PokerCard::Value::QUEEN
+  VALUE_KING  = PokerCard::Value::KING
+  VALUE_ACE   = PokerCard::Value::ACE
 
   def initialize(value_and_suit)
-    @value, @suit = value_and_suit[0], value_and_suit[1]
+    @value = PokerCard::Value.from_symbol value_and_suit[0]
+    @suit = value_and_suit[1]
   end
 
   attr_reader :value, :suit
