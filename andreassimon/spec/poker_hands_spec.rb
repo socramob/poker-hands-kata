@@ -100,9 +100,9 @@ describe PokerCard do
     # 3..8 skipped
 
     it 'can be *9*' do
-      two_of_clubs = PokerCard.new '9C'
+      nine_of_clubs = PokerCard.new '9C'
 
-      two_of_clubs.value.must_equal PokerCard::VALUE_9
+      nine_of_clubs.value.must_equal PokerCard::VALUE_9
     end
 
     it 'can be *ten*' do
