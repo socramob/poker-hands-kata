@@ -8,9 +8,10 @@ end
 
 def parse_poker_hands(poker_hands)
   match = /Black: ([2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS]).+$/.match poker_hands
+  white_cards = /White: ([2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS])/.match(poker_hands)[1]
   {
     black: match[1].split(' '),
-    white: []
+    white: white_cards.split(' ')
   }
 end
 
