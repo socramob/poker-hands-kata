@@ -31,7 +31,15 @@ describe 'parse_poker_hands' do
 
 end
 
-class PokerCard; end
+class PokerCard
+  CLUBS = 'C'
+
+  def initialize(suit_and_value)
+    @suit = suit_and_value[1]
+  end
+
+  attr_reader :suit
+end
 
 describe PokerCard do
   describe '##new' do
