@@ -35,6 +35,7 @@ class PokerCard
   CLUBS = 'C'
   DIAMONDS = 'D'
   HEARTS = 'H'
+  SPADES = 'S'
 
   def initialize(suit_and_value)
     @suit = suit_and_value[1]
