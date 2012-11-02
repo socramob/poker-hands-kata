@@ -6,6 +6,14 @@ def compare(poker_hands)
 
 end
 
+def parse_poker_hands(poker_hands)
+  match = /Black: ([2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS]).+$/.match poker_hands
+  {
+    black: match[1].split(' '),
+    white: []
+  }
+end
+
 describe 'parse_poker_hands' do
   let(:poker_hands) { "Black: 2H 3D 5S 9C KD White: 2C 3H 4S 8C AH" }
   let(:parse_result) { parse_poker_hands(poker_hands) }
