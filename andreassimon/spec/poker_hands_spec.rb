@@ -137,6 +137,12 @@ describe PokerCard do
   end
 end
 
+describe 'poker card order' do
+  it "ace is more valuable then king" do
+    PokerCard::VALUE_ACE.must_be :>, PokerCard::VALUE_KING
+  end
+end
+
 describe 'Poker hands' do
   describe "Suggested test cases" do
     it "White wins with high card: Ace" do
