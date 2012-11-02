@@ -37,11 +37,13 @@ class PokerCard
   HEARTS = 'H'
   SPADES = 'S'
 
+  VALUE_2 = '2'
+
   def initialize(suit_and_value)
-    @suit = suit_and_value[1]
+    @value, @suit = suit_and_value[0], suit_and_value[1]
   end
 
-  attr_reader :suit
+  attr_reader :value, :suit
 end
 
 describe PokerCard do
