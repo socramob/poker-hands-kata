@@ -51,8 +51,8 @@ class PokerCard
   VALUE_KING  = 'K'
   VALUE_ACE   = 'A'
 
-  def initialize(suit_and_value)
-    @value, @suit = suit_and_value[0], suit_and_value[1]
+  def initialize(value_and_suit)
+    @value, @suit = value_and_suit[0], value_and_suit[1]
   end
 
   attr_reader :value, :suit
