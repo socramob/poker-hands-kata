@@ -57,21 +57,21 @@ describe PokerCard do
     end
 
     it 'can be diamonds' do
-      two_of_clubs = PokerCard.new '2D'
+      two_of_diamonds = PokerCard.new '2D'
 
-      two_of_clubs.suit.must_equal PokerCard::DIAMONDS
+      two_of_diamonds.suit.must_equal PokerCard::DIAMONDS
     end
 
     it 'can be hearts' do
-      two_of_clubs = PokerCard.new '2H'
+      two_of_hearts = PokerCard.new '2H'
 
-      two_of_clubs.suit.must_equal PokerCard::HEARTS
+      two_of_hearts.suit.must_equal PokerCard::HEARTS
     end
 
     it 'can be spades' do
-      two_of_clubs = PokerCard.new '2S'
+      two_of_spades = PokerCard.new '2S'
 
-      two_of_clubs.suit.must_equal PokerCard::SPADES
+      two_of_spades.suit.must_equal PokerCard::SPADES
     end
 
   end
