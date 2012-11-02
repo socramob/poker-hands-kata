@@ -85,6 +85,14 @@ describe PokerCard do
       two_of_clubs.value.must_equal PokerCard::VALUE_2
     end
 
+    # 3..8 skipped
+
+    it 'can be *9*' do
+      two_of_clubs = PokerCard.new '9C'
+
+      two_of_clubs.value.must_equal PokerCard::VALUE_9
+    end
+
   end
 end
 
