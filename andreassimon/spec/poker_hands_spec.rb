@@ -7,6 +7,12 @@ def compare(poker_hands)
 end
 
 describe 'parse_poker_hands' do
+  let(:poker_hands) { "Black: 2H 3D 5S 9C KD White: 2C 3H 4S 8C AH" }
+  let(:parse_result) { parse_poker_hands(poker_hands) }
+
+  it "returns a list of cards for Black" do
+    parse_result[:black].must_equal %w(2H 3D 5S 9C KD)
+  end
 
 end
 
