@@ -7,11 +7,13 @@ def compare(poker_hands)
 end
 
 def parse_poker_hands(poker_hands)
-  match = /Black: ([2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS]).+$/.match poker_hands
-  white_cards = /White: ([2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS] [2-9TJQKA][CDHS])/.match(poker_hands)[1]
+  card_regex = '([2-9TJQKA][CDHS])'
+  poker_hand_regex = ([card_regex] * 5).join ' '
+  black_cards = /Black: #{poker_hand_regex}/.match(poker_hands)[1..5]
+  white_cards = /White: #{poker_hand_regex}/.match(poker_hands)[1..5]
   {
-    black: match[1].split(' '),
-    white: white_cards.split(' ')
+    black: black_cards,
+    white: white_cards
   }
 end
 
