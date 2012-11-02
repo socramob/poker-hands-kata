@@ -32,6 +32,27 @@ describe 'parse_poker_hands' do
 end
 
 class PokerCard
+  class Value
+    include Comparable
+
+    def initialize(symbol, order)
+      @symbol, @order = symbol, order
+    end
+
+    def to_s
+      @symbol.to_s
+    end
+
+    def ==(other)
+      other.respond_to?(:to_s) &&
+        other.to_s == self.to_s
+    end
+
+    def <=>(other)
+      @order <=> other.instance_variable_get(:@order)
+    end
+  end
+
   CLUBS = 'C'
   DIAMONDS = 'D'
   HEARTS = 'H'
@@ -48,8 +69,8 @@ class PokerCard
   VALUE_10 = 'T'
   VALUE_JACK  = 'J'
   VALUE_QUEEN = 'Q'
-  VALUE_KING  = 'K'
-  VALUE_ACE   = 'A'
+  VALUE_KING  = PokerCard::Value.new 'K', 13
+  VALUE_ACE   = PokerCard::Value.new 'A', 14
 
   def initialize(value_and_suit)
     @value, @suit = value_and_suit[0], value_and_suit[1]
