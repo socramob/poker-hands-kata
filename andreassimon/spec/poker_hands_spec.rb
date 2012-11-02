@@ -77,6 +77,12 @@ describe PokerCard do
   end
 
   describe '#value' do
+    it 'can be *2*' do
+      two_of_clubs = PokerCard.new '2C'
+
+      two_of_clubs.value.must_equal PokerCard::VALUE_2
+    end
+
   end
 end
 
