@@ -22,6 +22,10 @@ describe 'parse_poker_hands' do
     parse_result[:black].must_equal %w(2H 3D 5S 9C KD)
   end
 
+  it "returns a list of cards for White" do
+    parse_result[:white].must_equal %w(2C 3H 4S 8C AH)
+  end
+
 end
 
 describe 'Poker hands' do
