@@ -45,6 +45,11 @@ class PokerCard
   VALUE_7 = '7'
   VALUE_8 = '8'
   VALUE_9 = '9'
+  VALUE_10 = 'T'
+  VALUE_JACK  = 'J'
+  VALUE_QUEEN = 'Q'
+  VALUE_KING  = 'K'
+  VALUE_ACE   = 'A'
 
   def initialize(suit_and_value)
     @value, @suit = suit_and_value[0], suit_and_value[1]
